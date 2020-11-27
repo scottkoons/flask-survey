@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+</head>
+
+<body>
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>
